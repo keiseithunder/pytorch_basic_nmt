@@ -49,7 +49,7 @@ python vocab.py \
 This generates a vocabulary file `data/vocab.json`. 
 The script also has options to control the cutoff frequency and the size of generated vocabulary, which you may play with.
 
-To start training and evaluation, simply run `data/train.sh`. 
+To start training and evaluation, simply run `scripts/train.sh`. 
 After training and decoding, we call the official evaluation script `multi-bleu.perl` to compute the corpus-level BLEU score of the decoding results against the gold-standard.
 
 ### License

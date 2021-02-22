@@ -13,6 +13,7 @@ work_dir="work_dir"
 mkdir -p ${work_dir}
 echo save results to ${work_dir}
 
+# training
 python nmt.py \
     train \
     --cuda \
@@ -31,8 +32,9 @@ python nmt.py \
     --dropout 0.2 \
     --clip-grad 5.0 \
     --save-to ${work_dir}/model.bin \
-    --lr-decay 0.5 2>${work_dir}/err.log
+    --lr-decay 0.5 
 
+# decoding
 python nmt.py \
     decode \
     --cuda \
@@ -42,4 +44,4 @@ python nmt.py \
     ${test_src} \
     ${work_dir}/decode.txt
 
-perl multi-bleu.perl ${test_tgt} < ${work_dir}/decode.txt >>${work_dir}/err.log
+perl multi-bleu.perl ${test_tgt} < ${work_dir}/decode.txt
