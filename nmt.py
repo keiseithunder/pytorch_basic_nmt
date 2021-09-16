@@ -350,7 +350,7 @@ class NMT(nn.Module):
                 cand_new_hyp_score = cand_new_hyp_score.item()
 
                 hyp_word = self.vocab.tgt.id2word[hyp_word_id]
-                new_hyp_sent = hypotheses[prev_hyp_id] + [hyp_word]
+                new_hyp_sent = hypotheses[int(prev_hyp_id)] + [int(hyp_word)]
                 if hyp_word == '</s>':
                     completed_hypotheses.append(Hypothesis(value=new_hyp_sent[1:-1],
                                                            score=cand_new_hyp_score))
